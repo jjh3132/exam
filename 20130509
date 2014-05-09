@@ -1,0 +1,22 @@
+int Potentionmeter = A0;
+int l_Pin = 10;
+int val = 0;
+void setup()
+{
+  pinMode(l_Pin, OUTPUT);
+  Serial.begin(9600);
+}
+
+void loop()
+{
+  val = analogRead(Potentionmeter);
+  //val = map(val, 0, 1023, 0, 100);
+  Serial.println(val);
+  if(val>50)
+  {
+    digitalWrite(l_Pin,HIGH);
+    delay(300);
+    digitalWrite(l_Pin,LOW);
+  }
+  delay(50);
+}
